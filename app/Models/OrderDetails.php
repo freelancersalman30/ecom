@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class OrderDetails extends Model
+{
+    use HasFactory;
+
+    protected $table = 'order_details';
+
+    protected $fillable = [
+        'order_id',
+        'product_id',
+        'product_name',
+        'purchase_price',
+        'sale_price',
+        'product_discount',
+        'product_size',
+        'variant_price_id',
+        'product_color',
+        'qty',
+    ];
+
+    // ✅ অর্ডারের সাথে রিলেশন
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id');
+    }
+
+    // ✅ প্রোডাক্ট রিলেশন (ডিজিটাল চেক করার জন্য খুব জরুরি)
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+        // চাইলে select ব্যবহার করতে পারো:
+        // ->select('id', 'name', 'slug', 'is_digital', 'digital_file', 'download_limit', 'download_expire_days');
+    }
+
+    // ✅ কালার রিলেশন
+    public function color()
+    {
+        return $this->belongsTo(Color::class, 'product_color', 'id')
+                    ->select('id', 'colorName as name', 'color as code');
+    }
+
+    // ✅ সাইজ রিলেশন
+    public function size()
+    {
+        return $this->belongsTo(Size::class, 'product_size', 'id')
+                    ->select('id', 'sizeName as name');
+    }
+
+    // ✅ ইমেজ (প্রোডাক্ট আইডি দিয়ে)
+    public function image()
+    {
+        return $this->belongsTo(Productimage::class, 'product_id', 'product_id')
+                    ->select('id', 'product_id', 'image');
+    }
+}

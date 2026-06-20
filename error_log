@@ -1,0 +1,4 @@
+[06-Dec-2024 13:49:41 Asia/Dhaka] PHP Fatal error:  Cannot use App\Models\OrderStatus as OrderStatus because the name is already in use in /home/softitbd/fcom4/app/Http/Controllers/Admin/OrderController.php on line 22
+[06-Dec-2024 13:49:50 Asia/Dhaka] PHP Fatal error:  Cannot use App\Models\OrderStatus as OrderStatus because the name is already in use in /home/softitbd/fcom4/app/Http/Controllers/Admin/OrderController.php on line 22
+[02-Oct-2025 18:30:45 Asia/Dhaka] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Admin\OrderController::fraudCheck() in /home/creativedesignbd/myshop3.creativedesign.com.bd/app/Http/Controllers/Admin/OrderController.php on line 58
+[20-Nov-2025 01:35:12 Asia/Dhaka] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Admin\ApiIntegrationController::updateEnvFile() in /home/creativedesignbd/ecommerce1.creativedesign.com.bd/app/Http/Controllers/Admin/ApiIntegrationController.php on line 191
